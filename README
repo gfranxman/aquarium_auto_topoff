@@ -1,0 +1,30 @@
+to flash it with new firmware:
+
+mv ~/Downloads/esp8266-20190529-v1.11.bin .
+esptool.py --port /dev/cu.SLAB_USBtoUART erase_flash
+esptool.py --port /dev/cu.SLAB_USBtoUART --baud 460800 write_flash --flash_size=detect 0 esp8266-20190529-v1.11.bin 
+
+connect like:
+
+$ screen -L /dev/cu.SLAB_USBtoUART 115200 -L 
+
+^A^D to disconnect
+
+^ADD to detach and disconnect
+
+
+then screen -r to re-attach
+
+ampy -p /dev/cu.SLAB_USBto_UART ls
+ampy -p /dev/cu.SLAB_USBto_UART put main.py
+ampy -p /dev/cu.SLAB_USBto_UART put reset.py
+
+
+to stop it, attach then:
+import os
+os.remove('main.py')
+or
+or.rename('main.py', 'old_main.py')
+
+
+
