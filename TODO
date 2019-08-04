@@ -1,0 +1,15 @@
+safeties:
+   when draining or filling begin, allow only some max time before transitioning to IDLE, or to ERROR
+
+
+
+
+IDLE  ---[TopWentHigh]--->  DRAINING  ---[BottomWentLow]--->  FILLING  ---[TopIsHigh]-->  IDLE
+                               |                                 |
+                               |                                 |
+                            [TooSlow]                        [TooSlow]
+                               |                                 |
+                               |                                 |
+                               \--------->  ERROR  <-------------/
+
+
