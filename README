@@ -17,7 +17,7 @@ then screen -r to re-attach
 
 ampy -p /dev/cu.SLAB_USBto_UART ls
 ampy -p /dev/cu.SLAB_USBto_UART put main.py
-ampy -p /dev/cu.SLAB_USBto_UART put reset.py
+ampy -p /dev/cu.SLAB_USBto_UART reset
 
 
 to stop it, attach then:
