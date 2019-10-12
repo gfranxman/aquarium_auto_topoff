@@ -113,10 +113,10 @@ def tick(t):
 
     read_switches()
 
-    if top_went_low:
+    if top_went_low and bottom:
         set_mode(DRAINING)
 
-    elif bottom_went_low:
+    elif bottom_went_low and not top:
         set_mode(FILLING)
 
     if top and mode == FILLING:
