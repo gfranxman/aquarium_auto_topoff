@@ -7,11 +7,14 @@ reflash:
 
 .PHONY: connect
 connect:
-	screen -L /dev/cu.SLAB_USBtoUART 115200 -L 
+	screen -S Huzzah -L /dev/cu.SLAB_USBtoUART 115200 -L 
 
 .PHONY: reconnect
 reconnect:
 	screen -r
+
+disconnect:
+	screen -X -S Huzzah quit
 
 .PHONY: ls
 ls:
