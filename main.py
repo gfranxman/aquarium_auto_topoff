@@ -12,8 +12,17 @@ p2.off()   # blue light on
 
 p4 = Pin(4, Pin.IN, Pin.PULL_UP)  # p4 with internal pull resister
 p5 = Pin(5, Pin.IN, Pin.PULL_UP)  # p5 with internal pull resister
-
 # up is 1, down is 0  for the float switches
+
+# for the relays
+p13 = Pin(13, Pin.OUT)
+p13.off()
+
+p15 = Pin(15, Pin.OUT)
+p15.off()
+
+relay_1 = p13
+relay_2 = p15
 
 top_float_switch = p4
 bottom_float_switch = p5
@@ -21,6 +30,10 @@ bottom_float_switch = p5
 fresh_pump = p0
 dirty_pump = p2
 
+print("p4 = top switch")
+print("p5 = bottom switch")
+print("p13 = r1 = fill pump")
+print("p15 = r2 = drain pump")
 
 IDLE = -1
 DRAINING = 0
@@ -82,17 +95,29 @@ def set_mode(new_mode):
 
     mode = new_mode
     if mode == IDLE:
-        print("changing to IDLE")
+        print("changing to IDLE, relays off")
         fresh_pump.on()
+        relay_1.off()
+
         dirty_pump.on()
+        relay_2.off()
+
     elif mode == DRAINING:
-        print("changing to DRAINING")
+        print("changing to DRAINING, r1 OFF, r2 ON")
         fresh_pump.on()
+        relay_1.off()
+
         dirty_pump.off()
+        relay_2.on()
+
     elif mode == FILLING:
-        print("changing to FILLING")
+        print("changing to FILLING, r1 ON, r2 OFF")
         fresh_pump.off()  # ON
+        relay_1.on()
+
         dirty_pump.on()
+        relay_2.off()
+
     else:
         print("BAD MODE:" + str(mode))
 
@@ -124,8 +149,9 @@ def tick(t):
 
     if top and not bottom:
         print("error -- top is floating, but bottom is sinking")
+        set_mode(IDLE)
 
-    print_mode()
+    #print_mode()
 
 rt.init(period=1000, mode=Timer.PERIODIC, callback=tick)
 
