@@ -27,4 +27,7 @@ or
 or.rename('main.py', 'old_main.py')
 
 
+== relays:
+Adafruit Non-Latching Mini Relay FeatherWing PRODUCT ID: 2895  https://www.adafruit.com/product/2895
+
 
