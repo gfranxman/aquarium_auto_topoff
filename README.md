@@ -43,6 +43,8 @@ Adafruit Feather Huzzah esp-8266  https://learn.adafruit.com/adafruit-feather-hu
 Adafruit Non-Latching Mini Relay FeatherWing PRODUCT ID: 2895  https://www.adafruit.com/product/2895
 
 ## Float switches
+Shallow Elecall 4"Float Switch Stainless Steel Tank Water Level Sensor: https://www.amazon.com/gp/product/B0792PN3DJ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
+Deep uxcell 215mm Long Wire Liquid Level Sensor Single Ball Stainless Steel Float Switch: https://www.amazon.com/gp/product/B00K85HD5C/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
 
 ## Pumps
 
